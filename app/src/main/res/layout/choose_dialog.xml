@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:paddingEnd="18dp"
+    android:paddingStart="18dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:textSize="22dp"
+        android:text="Choose emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="SpUsage" />
+
+    <GridLayout
+        android:id="@+id/choose_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="4">
+
+
+        <ImageView
+        style="@style/choose_image"
+        android:src="@drawable/close" />
+
+        <ImageView
+        style="@style/choose_image"
+        android:src="@drawable/circumference" />
+
+        <ImageView
+            style="@style/choose_image"
+            android:src="@drawable/boy" />
+
+        <ImageView
+            style="@style/choose_image"
+            android:src="@drawable/girl" />
+
+        <ImageView
+            style="@style/choose_image"
+            android:src="@drawable/emoji" />
+
+
+        <ImageView
+            style="@style/choose_image"
+            android:src="@drawable/love" />
+
+        <ImageView
+            style="@style/choose_image"
+            android:src="@drawable/smile" />
+
+        <ImageView
+            style="@style/choose_image"
+            android:src="@drawable/thinking" />
+    </GridLayout>
+</LinearLayout>

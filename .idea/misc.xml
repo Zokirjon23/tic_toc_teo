@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/drawable/board.xml" value="0.126" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/drawable/ic_circle_oval_svgrepo_com.xml" value="0.126" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/drawable/ic_circle_ring_svgrepo_com.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/drawable/ic_fail_error_alert_notification_warning_svgrepo_com.xml" value="0.126" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.126" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.126" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/drawable/ic_tic_tac_toe_game_svgrepo_com.xml" value="0.126" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/activity_main.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/activity_main2.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/app_bar_main.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/choose_dialog.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/content_main.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/create_room_dialog.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/fragment_gallery.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/fragment_game.xml" value="0.18565400843881857" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/fragment_home.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/fragment_slideshow.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/fragment_start.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/nav_header_main.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/layout/play_dialog.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTocTeo/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
