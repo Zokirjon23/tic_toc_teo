@@ -35,7 +35,7 @@
             app:argType="string" />
         <argument
             android:name="type"
-            app:argType="com.example.tictocteo.ui.PlayerType" />
+            app:argType="com.example.tictocteo.data.model.JoinType" />
     </fragment>
 
 </navigation>

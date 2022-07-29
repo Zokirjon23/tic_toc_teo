@@ -15,7 +15,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
 //    private val binding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
 
-
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch{
