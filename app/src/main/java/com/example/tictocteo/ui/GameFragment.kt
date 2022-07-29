@@ -1,5 +1,6 @@
 package com.example.tictocteo.ui
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -31,6 +32,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
     private var isClickAble = true
     private var hostImage: Int = 0
     private var visitorImage: Int = 0
+    private var chooseDialog: Dialog? = null
 
     private val viewModel: GameViewModel by viewModels<GameViewModelImpl>()
 
@@ -42,23 +44,6 @@ class GameFragment : Fragment(R.layout.fragment_game) {
                 if (args.type == JoinType.HOST) {
                     me = "X"
                     isClickAble = true
-
-                    chooseDialogBinding = ChooseDialogBinding.inflate(layoutInflater)
-                    val dialog = AlertDialog.Builder(requireContext())
-                        .setView(chooseDialogBinding!!.root)
-                        .setCancelable(false)
-                        .show()
-
-                    dialog.setOnDismissListener { chooseDialogBinding = null }
-
-                    val views = chooseDialogBinding!!.chooseGrid
-                    for (i in 0 until views.childCount) {
-                        views.getChildAt(i).setOnClickListener {
-                            viewModel.onEmojiChoose(i, args.roomName)
-                            dialog.dismiss()
-                        }
-                    }
-
                 } else {
                     me = "O"
                     isClickAble = false
@@ -106,12 +91,6 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         }
 
         lifecycleScope.launchWhenStarted {
-            viewModel.showChooseDialog.collectLatest {
-
-            }
-        }
-
-        lifecycleScope.launchWhenStarted {
             viewModel.draw.collectLatest {
                 binding.draw.text = "Draw: $it"
                 if (it != 0)
@@ -144,12 +123,34 @@ class GameFragment : Fragment(R.layout.fragment_game) {
                 }
             }
         }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.isShowChooseDialog.collectLatest {
+                if (!it && chooseDialog != null) {
+                    chooseDialog!!.dismiss()
+                }else if(it){
+                    chooseDialogBinding = ChooseDialogBinding.inflate(layoutInflater)
+                    chooseDialog = AlertDialog.Builder(requireContext())
+                        .setView(chooseDialogBinding!!.root)
+                        .setCancelable(false)
+                        .show()
+
+                    chooseDialog!!.setOnDismissListener { chooseDialogBinding = null }
+
+                    val views = chooseDialogBinding!!.chooseGrid
+                    for (i in 0 until views.childCount) {
+                        views.getChildAt(i).setOnClickListener {
+                            viewModel.onEmojiChoose(i, args.roomName)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.onCreated(args.type, args.roomName)
         binding.retry.setOnClickListener { viewModel.onRestartClicked(args.roomName) }
-
     }
 
     private val list = listOf(

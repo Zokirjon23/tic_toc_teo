@@ -10,6 +10,7 @@ import com.example.tictocteo.domain.usescase.GameUsesCase
 import com.example.tictocteo.presenter.GameViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,7 +19,7 @@ class GameViewModelImpl @Inject constructor(private val usesCase: GameUsesCase) 
     override val init = MutableStateFlow(Unit)
     override val hostImage = MutableStateFlow(0)
     override val visitorImage = MutableStateFlow(1)
-    override val showChooseDialog = MutableSharedFlow<Unit>()
+    override val isShowChooseDialog = MutableStateFlow(false)
     override var tagList = ArrayList<String>()
     override val win = MutableStateFlow(0)
     override val lose = MutableStateFlow(0)
@@ -37,9 +38,7 @@ class GameViewModelImpl @Inject constructor(private val usesCase: GameUsesCase) 
                 visitorImage.value = it
             }.launchIn(viewModelScope)
         } else {
-//            viewModelScope.launch {
-//                showChooseDialog.emit(Unit)
-//            }
+                isShowChooseDialog.value = true
         }
     }
 
@@ -79,6 +78,7 @@ class GameViewModelImpl @Inject constructor(private val usesCase: GameUsesCase) 
     }
 
     override fun onEmojiChoose(pos: Int, roomName: String) {
+        isShowChooseDialog.value = false
         if (pos % 2 == 0) {
             hostImage.value = pos
             visitorImage.value = pos + 1

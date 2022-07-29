@@ -1,5 +1,6 @@
 package com.example.tictocteo.presenter.impl
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tictocteo.domain.usescase.MenuUsesCase
@@ -68,8 +69,10 @@ class MenuViewModelImpl @Inject constructor(private val menuUsesCase: MenuUsesCa
             viewModelScope.launch { error.emit("Enter name") }
         } else {
             menuUsesCase.createRoom(name).onEach {
-                if (it) successCreatedRoom.emit(Unit)
-                else error.emit("No Internet")
+                Log.d("LLL", "dialogCreateClicked: $it")
+                if (it == null) error.emit("Can't create link try again")
+                else if (!it) error.emit("Link already exist")
+                else successCreatedRoom.emit(Unit)
             }.launchIn(viewModelScope)
         }
     }

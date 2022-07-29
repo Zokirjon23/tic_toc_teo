@@ -33,16 +33,30 @@ class RoomRepositoryImpl @Inject constructor(private val mainRef: DatabaseRefere
         }
     }
 
-    override fun createLink(roomName: String): Flow<Boolean> {
+    override fun createLink(roomName: String): Flow<Boolean?> {
         return callbackFlow {
-            val values: MutableMap<String, Any> = HashMap()
-            values["roomName"] = roomName
+            mainRef.orderByChild("roomName").equalTo(roomName)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (!snapshot.exists()) {
+                            val values: MutableMap<String, Any> = HashMap()
+                            values["roomName"] = roomName
 
-            mainRef.child(roomName).setValue(values).addOnSuccessListener {
-                trySend(true)
-            }.addOnFailureListener {
-                trySend(false)
-            }
+                            mainRef.child(roomName.trim()).setValue(values).addOnSuccessListener {
+                                trySend(true)
+                            }.addOnFailureListener {
+                                trySend(null)
+                            }
+                        } else {
+                            trySend(false)
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.d("LLL", "onCancelled: ${error.message}")
+                        trySend(null)
+                    }
+                })
             awaitClose()
         }
     }

@@ -12,7 +12,7 @@ interface GameViewModel {
     val init: MutableStateFlow<Unit>
     val hostImage: StateFlow<Int>
     val visitorImage: StateFlow<Int>
-    val showChooseDialog: SharedFlow<Unit>
+    val isShowChooseDialog: StateFlow<Boolean>
     val restart: SharedFlow<Unit>
     val loadGameImage: SharedFlow<ButtonData>
     var tagList: ArrayList<String>
